@@ -8,12 +8,12 @@ public class Borrower {
 
 	public void borrow(Book book) {
 		books.add(book);
-		book.setBorrowered(true);
+		book.setBorrowed(true);
 	}
 
 	public void returnBook(Book book) {
 		books.remove(book);
-		book.setBorrowered(false);
+		book.setBorrowed(false);
 	}
 
 	public Book getBorrewerredBook(int i) {
