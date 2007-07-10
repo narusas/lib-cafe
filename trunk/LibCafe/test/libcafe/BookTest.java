@@ -2,9 +2,8 @@ package libcafe;
 
 import java.util.Date;
 
-import junit.framework.TestCase;
+public class BookTest extends BasicTest {
 
-public class BookTest extends TestCase {
 	public void testCreateBook() {
 		Book book = new Book();
 		book.setTitle("title");
@@ -22,24 +21,6 @@ public class BookTest extends TestCase {
 		assertEquals("title", book.getTitle());
 	}
 
-	public void testBorrowBook() {
-		Borrower borrower = new Borrower();
-		Book book = new Book();
-
-		assertFalse(book.isBorrowered());
-
-		borrower.borrow(book);
-		assertTrue(book.isBorrowered());
-
-		assertEquals(book, borrower.getBorrewerredBook(0));
-		assertEquals(1, borrower.getBorrewerredBookSize());
-
-		borrower.returnBook(book);
-		assertFalse(book.isBorrowered());
-		assertEquals(0, borrower.getBorrewerredBookSize());
-
-	}
-
 	public void testBookList() {
 		BookList list = new BookList();
 
@@ -54,8 +35,6 @@ public class BookTest extends TestCase {
 
 		assertEquals(book, list.get(0));
 	}
-
-	boolean isTested = false;
 
 	public void testGenerateBookListAddedEvent() {
 		BookList list = new BookList();
@@ -95,6 +74,26 @@ public class BookTest extends TestCase {
 		list.remove(book1);
 		assertTrue(isTested);
 		assertEquals(0, list.size());
+	}
+
+	public void testWholeBookList() {
+		isTested = false;
+		WholeBookList wList = new WholeBookList();
+		assertEquals(0, wList.size());
+
+		wList.addWholeBookListListener(new WholeBookListener() {
+			@Override
+			public void bookListAdded(WholeBookList list, BookList list2) {
+				isTested = true;
+			}
+		});
+		wList.add(new BookList());
+
+		assertTrue(isTested);
+		assertEquals(1, wList.getBookListSize());
+
+		wList.add(new Book());
+		assertEquals(1, wList.size());
 	}
 
 }

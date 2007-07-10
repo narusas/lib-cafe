@@ -1,6 +1,8 @@
 package libcafe;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Book {
 
@@ -17,7 +19,10 @@ public class Book {
 	String isbn;
 	int price;
 
-	boolean isBorrowered;
+	boolean isBorrowed;
+
+	List<Tag> tags = new LinkedList<Tag>();
+	List<BookListener> listeners = new LinkedList<BookListener>();
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -108,12 +113,39 @@ public class Book {
 		this.price = price;
 	}
 
-	public boolean isBorrowered() {
-		return isBorrowered;
+	public boolean isBorrowed() {
+		return isBorrowed;
 	}
 
-	public void setBorrowered(boolean isBorrowered) {
-		this.isBorrowered = isBorrowered;
+	public void setBorrowed(boolean isBorrowered) {
+		this.isBorrowed = isBorrowered;
+		notifyListeners("isBorrowed", new Boolean(isBorrowered));
 	}
 
+	private void notifyListeners(String name, Object value) {
+		for (BookListener listener : listeners) {
+			listener.eventNotified(new BookEvent(name, value));
+		}
+	}
+
+	public void addTag(Tag tag) {
+		if (tags.contains(tag)) {
+			return;
+		}
+		tags.add(tag);
+		tag.add(this);
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void removeTag(Tag tag) {
+		tags.remove(tag);
+		tag.remove(this);
+	}
+
+	public void addListener(BookListener bookListener) {
+		listeners.add(bookListener);
+	}
 }
