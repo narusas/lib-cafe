@@ -52,6 +52,12 @@ public class BookTest extends BasicTest {
 				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			public void nameChanged() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		list.add(new Book());
 		assertTrue(isTested);
@@ -75,6 +81,13 @@ public class BookTest extends BasicTest {
 				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			public void nameChanged() {
+				// TODO Auto-generated method stub
+				
+			}
+
 		});
 
 		Book book1 = new Book();
@@ -97,6 +110,11 @@ public class BookTest extends BasicTest {
 			@Override
 			public void bookListAdded(WholeBookList list, BookList list2) {
 				isTested = true;
+			}
+
+			@Override
+			public void bookListRemoved(WholeBookList list, BookList list2) {
+				
 			}
 		});
 		wList.add(new BookList());

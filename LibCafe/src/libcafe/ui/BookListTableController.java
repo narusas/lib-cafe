@@ -100,4 +100,10 @@ public class BookListTableController extends DefaultTableModel implements
 		fireTableDataChanged();
 	}
 
+	@Override
+	public void nameChanged() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
