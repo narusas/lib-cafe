@@ -4,10 +4,16 @@ public class BookEvent {
 
 	private final String name;
 	private final Object value;
+	private final Book src;
 
-	public BookEvent(String name, Object value) {
+	public BookEvent(Book src, String name, Object value) {
+		this.src = src;
 		this.name = name;
 		this.value = value;
+	}
+
+	public Book getSrc() {
+		return src;
 	}
 
 	public String getName() {

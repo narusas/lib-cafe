@@ -10,7 +10,7 @@ public class BookTest extends BasicTest {
 		book.setCoverImageUrl("large");
 		book.setCoverImageUrlThumbnail("small");
 		book.setDescription("desc");
-		book.setAuthor("author");
+		book.setCreator("author");
 		book.setTranslator("trans");
 		book.setPublisher("publisher");
 		book.setPublishDate(new Date(1999, 1, 2));
@@ -46,6 +46,12 @@ public class BookTest extends BasicTest {
 
 			public void bookRemoved(BookList list, Book book) {
 			}
+
+			@Override
+			public void bookModified(BookList list, Book book) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		list.add(new Book());
 		assertTrue(isTested);
@@ -62,6 +68,12 @@ public class BookTest extends BasicTest {
 
 			public void bookRemoved(BookList list, Book book) {
 				isTested = true;
+			}
+
+			@Override
+			public void bookModified(BookList list, Book book) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 
