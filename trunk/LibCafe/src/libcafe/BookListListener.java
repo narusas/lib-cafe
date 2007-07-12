@@ -6,4 +6,6 @@ public interface BookListListener {
 	void bookRemoved(BookList list, Book book);
 	
 	void bookModified(BookList list, Book book);
+
+	void nameChanged();
 }

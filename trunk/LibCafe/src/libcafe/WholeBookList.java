@@ -12,11 +12,26 @@ public class WholeBookList extends BookList{
 		bookLists.add(bookList);
 		notifyBookListAdded(bookList);
 	}
+	
+	public void remove(BookList bookList){
+		bookLists.remove(bookList);
+		notifyBookListRemoved(bookList);
+	}
+
+	private void notifyBookListRemoved(BookList bookList) {
+		for (WholeBookListener listener : wholeBookListeners) {
+			listener.bookListRemoved(this, bookList);			
+		}
+	}
 
 	private void notifyBookListAdded(BookList bookList) {
 		for (WholeBookListener listener : wholeBookListeners) {
 			listener.bookListAdded(this, bookList);
 		}
+	}
+	
+	public BookList getBookList(int index){
+		return bookLists.get(index);
 	}
 
 	public int getBookListSize() {
