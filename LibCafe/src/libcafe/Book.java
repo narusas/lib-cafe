@@ -24,9 +24,11 @@ public class Book {
 	List<Tag> tags = new LinkedList<Tag>();
 	List<BookListener> listeners = new LinkedList<BookListener>();
 
+	private int rating;
+
 	public void setTitle(String title) {
 		this.title = title;
-
+		notifyListeners("Title", title);
 	}
 
 	public String getTitle() {
@@ -57,11 +59,11 @@ public class Book {
 		this.description = description;
 	}
 
-	public String getAuthor() {
+	public String getCreator() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setCreator(String author) {
 		this.author = author;
 	}
 
@@ -124,7 +126,7 @@ public class Book {
 
 	private void notifyListeners(String name, Object value) {
 		for (BookListener listener : listeners) {
-			listener.eventNotified(new BookEvent(name, value));
+			listener.eventNotified(new BookEvent(this, name, value));
 		}
 	}
 
@@ -147,5 +149,14 @@ public class Book {
 
 	public void addListener(BookListener bookListener) {
 		listeners.add(bookListener);
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+		notifyListeners("Rating", rating);
+	}
+
+	public int getRating() {
+		return rating;
 	}
 }

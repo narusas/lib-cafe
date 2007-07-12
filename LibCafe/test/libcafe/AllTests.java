@@ -7,11 +7,12 @@ public class AllTests {
 
 	public static Test suite() {
 		TestSuite suite = new TestSuite("Test for libcafe");
-		// $JUnit-BEGIN$
+		//$JUnit-BEGIN$
 		suite.addTestSuite(BookTest.class);
 		suite.addTestSuite(BorrowerTest.class);
 		suite.addTestSuite(TagTest.class);
-		// $JUnit-END$
+		suite.addTestSuite(LibraryTest.class);
+		//$JUnit-END$
 		return suite;
 	}
 

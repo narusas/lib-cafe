@@ -3,12 +3,15 @@ package libcafe;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BookList {
+import libcafe.ui.BookListTableController;
+
+public class BookList implements BookListener {
 	List<Book> books = new LinkedList<Book>();
 	List<BookListListener> listeners = new LinkedList<BookListListener>();
 	String name;
 
 	public void add(Book book) {
+		book.addListener(this);
 		books.add(book);
 		notifyAdded(book);
 	}
@@ -38,6 +41,10 @@ public class BookList {
 		listeners.add(bookListListener);
 	}
 
+	public void removeListener(BookListListener bookListListener) {
+		listeners.remove(bookListListener);
+	}
+
 	private void notifyAdded(Book book) {
 		for (BookListListener listener : listeners) {
 			listener.bookAdded(this, book);
@@ -48,5 +55,16 @@ public class BookList {
 		for (BookListListener listener : listeners) {
 			listener.bookRemoved(this, book);
 		}
+	}
+
+	private void notifyModified(Book book) {
+		for (BookListListener listener : listeners) {
+			listener.bookRemoved(this, book);
+		}
+	}
+
+	@Override
+	public void eventNotified(BookEvent e) {
+		notifyModified(e.getSrc());
 	}
 }
