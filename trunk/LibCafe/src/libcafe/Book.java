@@ -6,18 +6,18 @@ import java.util.List;
 
 public class Book {
 
-	private String title;
+	private String title;  //1
 
 	String coverImageUrl;
 	String coverImageUrlThumbnail;
-	String description;
-	String author;
-	String translator;
-	String publisher;
-	Date publishDate;
-	String category;
-	String isbn;
-	int price;
+	String creator;      //2
+	String translator;   //3
+	String publisher;    //4
+	Date publishDate;    //5
+	String category;     //6
+	String description;  //7
+	String isbn;         //8
+	int price;           //9
 
 	boolean isBorrowed;
 
@@ -60,11 +60,11 @@ public class Book {
 	}
 
 	public String getCreator() {
-		return author;
+		return creator;
 	}
 
 	public void setCreator(String author) {
-		this.author = author;
+		this.creator = author;
 	}
 
 	public String getTranslator() {
