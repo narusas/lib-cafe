@@ -62,6 +62,5 @@ public class BookListTableUITest {
 				System.out.println("List changed");
 			}
 		}.start();
-
 	}
 }

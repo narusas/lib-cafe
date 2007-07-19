@@ -2,7 +2,6 @@ package libcafe.ui;
 
 import java.awt.Image;
 
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 import libcafe.Book;
@@ -15,10 +14,6 @@ public class BookListTableController extends DefaultTableModel implements
 
 	public BookListTableController() {
 		super();
-	}
-
-	public BookListTableController(BookListTableUI tableUI) {
-		// TODO Auto-generated constructor stub
 	}
 
 	public void setBookList(BookList bookList) {
