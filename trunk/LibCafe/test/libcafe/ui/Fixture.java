@@ -18,15 +18,15 @@ public class Fixture {
 	public Fixture() {
 		list1.setName("list1");
 		list2.setName("list2");
-		
+
 		book1.setTitle("New Fun book");
 		book1.setCreator("¾Æ¹«°³");
 		book1.setRating(3);
-		
+
 		book2.setTitle("Comics Series");
 		book2.setCreator("Ano");
 		book2.setRating(1);
-		
+
 		book3.setTitle("111");
 		book3.setCreator("222no");
 		book3.setRating(5);

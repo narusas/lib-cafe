@@ -8,8 +8,7 @@ import libcafe.BookListListener;
 import libcafe.WholeBookList;
 import libcafe.WholeBookListener;
 
-public class BookListListModel extends AbstractListModel implements
-		WholeBookListener, BookListListener {
+public class BookListListModel extends AbstractListModel implements WholeBookListener, BookListListener {
 
 	private WholeBookList list;
 
