@@ -12,32 +12,21 @@ public class BookListListUITest {
 
 	public static void main(String[] args) {
 
-		final WholeBookList wList = new WholeBookList();
+		final Fixture fixture = new Fixture();
 
-		final BookList list1 = new BookList();
-		list1.setName("list1");
-		final BookList list2 = new BookList();
-		list2.setName("list2");
+		fixture.wList.add(fixture.list1);
+		fixture.wList.add(fixture.list2);
 
-		wList.add(list1);
-		wList.add(list2);
-
-		JFrame f = new JFrame();
-		f.setSize(200, 300);
-		f.setLocation(500, 400);
-		f.getContentPane().setLayout(new BorderLayout());
+		JFrame f = SwingUtil.createJFrame(200, 300);
 
 		BookListListUI ui = new BookListListUI();
 		final BookListListController model = new BookListListController(ui);
-		model.setWholeBookList(wList);
+		model.setWholeBookList(fixture.wList);
 
 		f.getContentPane().add(ui, BorderLayout.CENTER);
 
-		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		final BookList newList = new BookList();
-		
+
 		new Thread() {
 			@Override
 			public void run() {
@@ -47,31 +36,31 @@ public class BookListListUITest {
 				}
 
 				newList.setName("new List");
-				wList.add(newList);
+				fixture.wList.add(newList);
 				System.out.println("List Added");
 			}
 		}.start();
-		
-		new Thread(){
+
+		new Thread() {
 			@Override
 			public void run() {
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 				}
-				wList.remove(list2);
+				fixture.wList.remove(fixture.list2);
 				System.out.println("List Removed");
 			}
 		}.start();
-	
-		new Thread(){
+
+		new Thread() {
 			@Override
 			public void run() {
 				try {
 					Thread.sleep(7000);
 				} catch (InterruptedException e) {
 				}
-				list1.setName("New Name");
+				fixture.list1.setName("New Name");
 				System.out.println("List name changed");
 			}
 		}.start();

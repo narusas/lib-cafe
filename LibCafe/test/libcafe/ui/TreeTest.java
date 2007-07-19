@@ -5,8 +5,6 @@ import java.io.File;
 import java.util.Enumeration;
 
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
