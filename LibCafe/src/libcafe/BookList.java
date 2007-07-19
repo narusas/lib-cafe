@@ -3,8 +3,6 @@ package libcafe;
 import java.util.LinkedList;
 import java.util.List;
 
-import libcafe.ui.BookListTableController;
-
 public class BookList implements BookListener {
 	List<Book> books = new LinkedList<Book>();
 	List<BookListListener> listeners = new LinkedList<BookListListener>();

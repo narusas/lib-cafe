@@ -3,17 +3,14 @@ package libcafe.ui;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Date;
 
-import javax.swing.FocusManager;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import libcafe.Book;
+import libcafe.Date;
 
 public class BookEditController {
 
@@ -60,6 +57,7 @@ public class BookEditController {
 			validateTitle(ui);
 			validateNumber(ui.priceTextField, 20);
 			validateNumber(ui.yearTextField, 4);
+			
 
 			enableSaveButton(ui, true);
 		} catch (RuntimeException ex) {
@@ -126,10 +124,9 @@ public class BookEditController {
 		book.setPublisher(ui.publisherTextField.getText());
 
 		if (("".equals(year) || "---".equals(month) || "---".equals(day)) == false) {
-			Date d = new Date(Integer.parseInt(year) - 1900, Integer
-					.parseInt(month) - 1, Integer.parseInt(day));
+			Date d = new Date(Integer.parseInt(year), Integer
+					.parseInt(month), Integer.parseInt(day));
 			book.setPublishDate(d);
-			System.out.println(book.getPublishDate());
 		}
 
 		book.setCategory(ui.categoryTextField.getText());
@@ -137,11 +134,11 @@ public class BookEditController {
 		book.setIsbn(ui.isbnTextField.getText());
 
 		if ("".equals(price) == false) {
-			book.setPrice(Integer.parseInt(price));
+			book.setPrice(price);
 		}
-
+		
+		
 	}
-	
 
 	private void validate(String str) {
 		if ("".equals(str) || "".equals(str.trim())) {
@@ -151,6 +148,25 @@ public class BookEditController {
 
 	public void setBook(Book book) {
 		this.book = book;
+
+		ui.titleTextField.setText(book.getTitle());
+		ui.creatorTextField.setText(book.getCreator());
+		ui.translatorTextFiled.setText(book.getTranslator());
+		ui.publisherTextField.setText(book.getPublisher());
+
+		if (book.getPublishDate() != null) {
+			ui.yearTextField.setText(Integer.toString(book.getPublishDate()
+					.getYear()));
+			ui.monthComboBox.setSelectedItem(String.valueOf(book
+					.getPublishDate().getMonth()));
+			ui.dayComboBox.setSelectedItem(String.valueOf(book.getPublishDate()
+					.getDay()));
+		}
+
+		ui.categoryTextField.setText(book.getCategory());
+		ui.descriptionTextField.setText(book.getDescription());
+		ui.isbnTextField.setText(book.getIsbn());
+		ui.priceTextField.setText(book.getPrice());
 	}
 
 }

@@ -1,9 +1,30 @@
 package libcafe;
 
-import java.util.Date;
-
 public class BookTest extends BasicTest {
 
+	
+	public void testAddToAllList(){
+		Book b1 = new Book();
+		Book b2 = new Book();
+		Book b3 = new Book();
+		Book b4 = new Book();
+		
+		BookList bList = new BookList();
+		
+		WholeBookList wList = new WholeBookList();
+		
+		wList.add(bList);
+		
+		bList.add(b1);
+		bList.add(b2);
+		bList.add(b3);
+		bList.add(b4);
+		
+		assertEquals(4, wList.size());
+		
+	}
+	
+	
 	public void testCreateBook() {
 		Book book = new Book();
 		book.setTitle("title");
@@ -16,7 +37,7 @@ public class BookTest extends BasicTest {
 		book.setPublishDate(new Date(1999, 1, 2));
 		book.setCategory("catergory");
 		book.setIsbn("0000");
-		book.setPrice(100);
+		book.setPrice("100");
 
 		assertEquals("title", book.getTitle());
 	}
