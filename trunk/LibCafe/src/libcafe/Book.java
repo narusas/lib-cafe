@@ -1,6 +1,5 @@
 package libcafe;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class Book {
 	String category;     //6
 	String description;  //7
 	String isbn;         //8
-	int price;           //9
+	String price;           //9
 
 	boolean isBorrowed;
 
@@ -107,11 +106,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 

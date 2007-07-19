@@ -25,6 +25,8 @@ public class BookListListUITest {
 
 		f.getContentPane().add(ui, BorderLayout.CENTER);
 
+		f.validate();
+		
 		final BookList newList = new BookList();
 
 		new Thread() {
