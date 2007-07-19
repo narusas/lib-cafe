@@ -2,7 +2,6 @@ package libcafe;
 
 public class BookTest extends BasicTest {
 
-	
 	public void testAddToAllList(){
 		Book b1 = new Book();
 		Book b2 = new Book();
@@ -21,9 +20,7 @@ public class BookTest extends BasicTest {
 		bList.add(b4);
 		
 		assertEquals(4, wList.size());
-		
 	}
-	
 	
 	public void testCreateBook() {
 		Book book = new Book();
