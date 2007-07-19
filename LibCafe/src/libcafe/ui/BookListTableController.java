@@ -17,6 +17,10 @@ public class BookListTableController extends DefaultTableModel implements
 		super();
 	}
 
+	public BookListTableController(BookListTableUI tableUI) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setBookList(BookList bookList) {
 		if (this.bookList != null) {
 			this.bookList.removeListener(this);
@@ -103,7 +107,11 @@ public class BookListTableController extends DefaultTableModel implements
 	@Override
 	public void nameChanged() {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public Book getBookByRow(int row) {
+		return bookList.get(row);
 	}
 
 }

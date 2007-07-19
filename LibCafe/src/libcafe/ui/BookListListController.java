@@ -1,10 +1,6 @@
 package libcafe.ui;
 
-import javax.swing.ListModel;
-
-import libcafe.BookList;
 import libcafe.WholeBookList;
-import libcafe.WholeBookListener;
 
 public class BookListListController {
 

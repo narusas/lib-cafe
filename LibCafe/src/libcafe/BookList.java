@@ -9,6 +9,9 @@ public class BookList implements BookListener {
 	String name;
 
 	public void add(Book book) {
+		if (books.contains(book)) {
+			return;
+		}
 		book.addListener(this);
 		books.add(book);
 		notifyAdded(book);
@@ -75,6 +78,6 @@ public class BookList implements BookListener {
 
 	@Override
 	public String toString() {
-		return name; 
+		return name;
 	}
 }
