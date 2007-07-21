@@ -43,6 +43,7 @@ public class BookAddTest {
 
 		editFrame.getContentPane().add(ui, BorderLayout.CENTER);
 		editFrame.validate();
+		
 		table.getSelectionModel().setSelectionMode(0);
 		table.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
@@ -65,7 +66,7 @@ public class BookAddTest {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("OK");
+				fixture.list1.add(controller.getBook());
 			}
 		});
 	}

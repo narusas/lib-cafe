@@ -16,5 +16,6 @@ public class BookEditTest {
 		controller.setBook(book);
 
 		f.getContentPane().add(ui, BorderLayout.CENTER);
+		f.validate();
 	}
 }

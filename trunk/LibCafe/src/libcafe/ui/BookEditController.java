@@ -169,4 +169,8 @@ public class BookEditController {
 		ui.priceTextField.setText(book.getPrice());
 	}
 
+	public Book getBook() {
+		return book;
+	}
+
 }
