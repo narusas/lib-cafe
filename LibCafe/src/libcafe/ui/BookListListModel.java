@@ -45,8 +45,6 @@ public class BookListListModel extends AbstractListModel implements WholeBookLis
 
 	@Override
 	public void bookAdded(BookList list, Book book) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

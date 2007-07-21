@@ -109,4 +109,11 @@ public class BookListTableController extends DefaultTableModel implements
 		return bookList.get(row);
 	}
 
+	public BookList getBookList() {
+		return bookList;
+	}
+
+	public void remove(Book book) {
+		bookList.remove(book);
+	}
 }

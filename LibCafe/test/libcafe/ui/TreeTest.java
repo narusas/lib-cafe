@@ -64,6 +64,7 @@ class FileTreeNode implements TreeNode {
 				}
 			};
 		}
+		
 		return new Enumeration() {
 
 			@Override
@@ -112,5 +113,4 @@ class FileTreeNode implements TreeNode {
 	public String toString() {
 		return file.getName();
 	}
-
 }
