@@ -3,17 +3,36 @@ package libcafe;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Borrower {
+public class Borrower extends BookList {
 	List<Book> books = new LinkedList<Book>();
+	List<BorrowerListener> listeners = new LinkedList<BorrowerListener>();
+
+	private String name;
 
 	public void borrow(Book book) {
+		if (books.contains(book)) {
+			return;
+		}
 		books.add(book);
 		book.setBorrowed(true);
+		notifyChanged();
 	}
 
 	public void returnBook(Book book) {
 		books.remove(book);
 		book.setBorrowed(false);
+		notifyChanged();
+	}
+
+	@Override
+	public void add(Book book) {
+		System.out.println("### add :" + book);
+		this.borrow(book);
+	}
+
+	@Override
+	public void remove(Book book) {
+		returnBook(book);
 	}
 
 	public Book getBorrewerredBook(int i) {
@@ -22,6 +41,31 @@ public class Borrower {
 
 	public int getBorrewerredBookSize() {
 		return books.size();
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		notifyChanged();
+	}
+
+	private void notifyChanged() {
+		for (BorrowerListener listener : listeners) {
+			listener.borrowerChanged(this);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	public String getName() {
+
+		return name;
+	}
+
+	public void addListener(BorrowerListener borrowerListener) {
+		listeners.add(borrowerListener);
 	}
 
 }
