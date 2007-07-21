@@ -5,15 +5,15 @@ import libcafe.BookList;
 import libcafe.WholeBookList;
 
 public class Fixture {
-	BookList list1 = new BookList();
-	BookList list2 = new BookList();
-	Book book1 = new Book();
+	public BookList list1 = new BookList();
+	public BookList list2 = new BookList();
+	public Book book1 = new Book();
 
-	Book book2 = new Book();
+	public Book book2 = new Book();
 
-	Book book3 = new Book();
+	public Book book3 = new Book();
 
-	WholeBookList wList = new WholeBookList();
+	public WholeBookList wList = new WholeBookList();
 
 	public Fixture() {
 		list1.setName("list1");

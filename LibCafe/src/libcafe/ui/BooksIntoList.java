@@ -5,6 +5,7 @@ import java.awt.datatransfer.Transferable;
 
 import javax.swing.JComponent;
 import javax.swing.JList;
+import javax.swing.ListModel;
 import javax.swing.TransferHandler;
 
 import libcafe.Book;
@@ -26,7 +27,7 @@ public class BooksIntoList extends TransferHandler {
 			book = (Book) t.getTransferData(Constants.DATA_FLAVOR);
 			JList target = (JList) c;
 			int index = target.getSelectedIndex();
-			BookListListModel model = (BookListListModel) target.getModel();
+			ListModel model = (ListModel) target.getModel();
 			BookList bookList = (BookList) model.getElementAt(index);
 			bookList.add(book);
 		} catch (Exception e) {

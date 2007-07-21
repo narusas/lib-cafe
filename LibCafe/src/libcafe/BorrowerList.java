@@ -3,12 +3,15 @@ package libcafe;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BorrowerList {
+import libcafe.ui.BorrowerListModel;
+
+public class BorrowerList implements BorrowerListener {
 
 	List<Borrower> borrowers = new LinkedList<Borrower>();
 	List<BorrowerListListener> listeners = new LinkedList<BorrowerListListener>();
 
 	public void add(Borrower bwer) {
+		bwer.addListener(this);
 		borrowers.add(bwer);
 		notifyAdded(bwer);
 	}
@@ -39,4 +42,21 @@ public class BorrowerList {
 		}
 	}
 
+
+	private void notifyChanged(Borrower bwer) {
+		for (BorrowerListListener listener : listeners) {
+			listener.borrowerChanged(bwer);
+		}
+	}
+
+	
+	public Borrower get(int index) {
+
+		return borrowers.get(index);
+	}
+
+	@Override
+	public void borrowerChanged(Borrower bwer) {
+		notifyChanged(bwer);
+	}
 }
