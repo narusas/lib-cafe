@@ -67,7 +67,6 @@ public class BorrowerTest extends BasicTest {
 
 			@Override
 			public void borrowerChanged(Borrower borrower) {
-				// TODO Auto-generated method stub
 
 			}
 		});
