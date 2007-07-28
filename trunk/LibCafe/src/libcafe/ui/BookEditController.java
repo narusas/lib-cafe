@@ -147,6 +147,7 @@ public class BookEditController {
 	}
 
 	public void setBook(Book book) {
+		
 		this.book = book;
 
 		ui.titleTextField.setText(book.getTitle());
@@ -161,6 +162,11 @@ public class BookEditController {
 					.getPublishDate().getMonth()));
 			ui.dayComboBox.setSelectedItem(String.valueOf(book.getPublishDate()
 					.getDay()));
+		}
+		else {
+			ui.yearTextField.setText("");
+			ui.monthComboBox.setSelectedItem("---");
+			ui.dayComboBox.setSelectedItem("---");
 		}
 
 		ui.categoryTextField.setText(book.getCategory());

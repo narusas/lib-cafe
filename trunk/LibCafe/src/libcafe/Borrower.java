@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Borrower extends BookList {
-	List<Book> books = new LinkedList<Book>();
 	List<BorrowerListener> listeners = new LinkedList<BorrowerListener>();
 
 	private String name;
