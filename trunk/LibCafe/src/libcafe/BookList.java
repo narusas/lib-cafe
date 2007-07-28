@@ -27,7 +27,7 @@ public class BookList implements BookListener {
 	}
 
 	public String getName() {
-		return name;
+		return name == null ? "untitled" : name;
 	}
 
 	public int size() {
@@ -78,6 +78,6 @@ public class BookList implements BookListener {
 
 	@Override
 	public String toString() {
-		return name;
+		return getName();
 	}
 }

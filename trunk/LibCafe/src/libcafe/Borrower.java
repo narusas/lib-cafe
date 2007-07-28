@@ -56,12 +56,12 @@ public class Borrower extends BookList {
 
 	@Override
 	public String toString() {
-		return name;
+		return getName();
 	}
 
 	public String getName() {
 
-		return name;
+		return name == null ? "anonymous" : name;
 	}
 
 	public void addListener(BorrowerListener borrowerListener) {

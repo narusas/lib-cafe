@@ -19,7 +19,7 @@ public class BookListListModel extends AbstractListModel implements WholeBookLis
 
 	@Override
 	public int getSize() {
-		return list.getBookListSize();
+		return list == null ? 0 : list.getBookListSize();
 	}
 
 	public void setWholeList(WholeBookList list) {
