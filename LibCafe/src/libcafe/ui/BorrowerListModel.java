@@ -23,7 +23,7 @@ public class BorrowerListModel extends AbstractListModel implements BorrowerList
 
 	@Override
 	public int getSize() {
-		return list.size();
+		return list == null ? 0 :list.size();
 	}
 
 	@Override

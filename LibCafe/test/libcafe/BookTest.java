@@ -2,26 +2,25 @@ package libcafe;
 
 public class BookTest extends BasicTest {
 
-	public void testAddToAllList(){
+	public void testAddToAllList() {
 		Book b1 = new Book();
 		Book b2 = new Book();
 		Book b3 = new Book();
 		Book b4 = new Book();
-		
+
 		BookList bList = new BookList();
-		
 		WholeBookList wList = new WholeBookList();
-		
+
 		wList.add(bList);
-		
+
 		bList.add(b1);
 		bList.add(b2);
 		bList.add(b3);
 		bList.add(b4);
-		
+
 		assertEquals(4, wList.size());
 	}
-	
+
 	public void testCreateBook() {
 		Book book = new Book();
 		book.setTitle("title");
@@ -68,13 +67,13 @@ public class BookTest extends BasicTest {
 			@Override
 			public void bookModified(BookList list, Book book) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void nameChanged() {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		list.add(new Book());
@@ -97,13 +96,13 @@ public class BookTest extends BasicTest {
 			@Override
 			public void bookModified(BookList list, Book book) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void nameChanged() {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 		});
@@ -132,7 +131,7 @@ public class BookTest extends BasicTest {
 
 			@Override
 			public void bookListRemoved(WholeBookList list, BookList list2) {
-				
+
 			}
 		});
 		wList.add(new BookList());
@@ -142,6 +141,20 @@ public class BookTest extends BasicTest {
 
 		wList.add(new Book());
 		assertEquals(1, wList.size());
+	}
+
+	public void testRemoveBookFromWholeList_AlsoList() {
+		BookList list = new BookList();
+		Book book = new Book();
+		list.add(book);
+
+		WholeBookList wList = new WholeBookList();
+		wList.add(list);
+
+		assertEquals(1, list.size());
+
+		wList.remove(book);
+		assertEquals(0, list.size());
 	}
 
 }
