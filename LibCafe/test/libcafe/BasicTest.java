@@ -10,4 +10,7 @@ public class BasicTest extends TestCase {
 		super.setUp();
 		isTested = false;
 	}
+
+	public void testEmpty() {
+	}
 }

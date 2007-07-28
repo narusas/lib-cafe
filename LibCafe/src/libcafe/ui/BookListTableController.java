@@ -21,7 +21,7 @@ public class BookListTableController extends DefaultTableModel implements
 			this.bookList.removeListener(this);
 		}
 		this.bookList = bookList;
-		this.bookList.addListener(this);
+		this.bookList.addBookListener(this);
 		fireTableDataChanged();
 	}
 
@@ -99,11 +99,7 @@ public class BookListTableController extends DefaultTableModel implements
 		fireTableDataChanged();
 	}
 
-	@Override
-	public void nameChanged() {
-		// TODO Auto-generated method stub
 
-	}
 
 	public Book getBookByRow(int row) {
 		return bookList.get(row);
@@ -115,5 +111,10 @@ public class BookListTableController extends DefaultTableModel implements
 
 	public void remove(Book book) {
 		bookList.remove(book);
+	}
+
+	@Override
+	public void bookListNameChanged(BookList list) {
+		
 	}
 }

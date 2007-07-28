@@ -56,7 +56,7 @@ public class BookTest extends BasicTest {
 	public void testGenerateBookListAddedEvent() {
 		BookList list = new BookList();
 		isTested = false;
-		list.addListener(new BookListListener() {
+		list.addBookListener(new BookListListener() {
 			public void bookAdded(BookList list, Book book) {
 				isTested = true;
 			}
@@ -69,12 +69,12 @@ public class BookTest extends BasicTest {
 				// TODO Auto-generated method stub
 
 			}
-
 			@Override
-			public void nameChanged() {
+			public void bookListNameChanged(BookList list) {
 				// TODO Auto-generated method stub
 
 			}
+
 		});
 		list.add(new Book());
 		assertTrue(isTested);
@@ -85,7 +85,7 @@ public class BookTest extends BasicTest {
 
 		isTested = false;
 
-		list.addListener(new BookListListener() {
+		list.addBookListener(new BookListListener() {
 			public void bookAdded(BookList list, Book book) {
 			}
 
@@ -100,7 +100,7 @@ public class BookTest extends BasicTest {
 			}
 
 			@Override
-			public void nameChanged() {
+			public void bookListNameChanged(BookList list) {
 				// TODO Auto-generated method stub
 
 			}
@@ -133,11 +133,17 @@ public class BookTest extends BasicTest {
 			public void bookListRemoved(WholeBookList list, BookList list2) {
 
 			}
+
+			@Override
+			public void bookListModified(WholeBookList list, BookList list2) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		wList.add(new BookList());
 
 		assertTrue(isTested);
-		assertEquals(1, wList.getBookListSize());
+		assertEquals(2, wList.getBookListSize());
 
 		wList.add(new Book());
 		assertEquals(1, wList.size());

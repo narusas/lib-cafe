@@ -17,7 +17,7 @@ public class WholeBookList extends BookList implements BookListListener {
 
 	public void add(BookList bookList) {
 		bookLists.add(bookList);
-		bookList.addListener(new BookListListener() {
+		bookList.addBookListener(new BookListListener() {
 
 			@Override
 			public void bookAdded(BookList list, Book book) {
@@ -35,8 +35,9 @@ public class WholeBookList extends BookList implements BookListListener {
 			}
 
 			@Override
-			public void nameChanged() {
-
+			public void bookListNameChanged(BookList list) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		mergeBooks(bookList);
@@ -105,8 +106,10 @@ public class WholeBookList extends BookList implements BookListListener {
 	}
 
 	@Override
-	public void nameChanged() {
-
+	public void bookListNameChanged(BookList list) {
+		for (WholeBookListener listener : wholeBookListeners) {
+			listener.bookListModified(this, list);
+		}
 	}
 
 	@Override

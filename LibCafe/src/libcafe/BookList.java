@@ -39,7 +39,7 @@ public class BookList implements BookListener {
 		notifyNameChanged(this);
 	}
 
-	public void addListener(BookListListener ListenerbookListListener) {
+	public void addBookListener(BookListListener ListenerbookListListener) {
 		listeners.add(ListenerbookListListener);
 	}
 
@@ -49,7 +49,7 @@ public class BookList implements BookListener {
 
 	private void notifyNameChanged(BookList bookList) {
 		for (BookListListener listener : listeners) {
-			listener.nameChanged();
+			listener.bookListNameChanged(this);
 		}
 	}
 
@@ -67,7 +67,7 @@ public class BookList implements BookListener {
 
 	private void notifyModified(Book book) {
 		for (BookListListener listener : listeners) {
-			listener.bookRemoved(this, book);
+			listener.bookModified(this, book);
 		}
 	}
 

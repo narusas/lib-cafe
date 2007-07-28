@@ -34,7 +34,7 @@ public class WholeBookListAndBookListAddedBook {
 
 		BookListListUI ui = new BookListListUI();
 		BookListListController controller = new BookListListController(ui);
-		fixture.list1.addListener(fixture.wList);
+		fixture.list1.addBookListener(fixture.wList);
 		fixture.wList.add(fixture.wList);
 		fixture.wList.add(fixture.list1);
 		fixture.wList.add(fixture.list2);

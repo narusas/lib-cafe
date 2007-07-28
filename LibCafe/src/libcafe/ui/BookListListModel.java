@@ -27,7 +27,7 @@ public class BookListListModel extends AbstractListModel implements WholeBookLis
 		list.addWholeBookListListener(this);
 		for (int i = 0; i < this.list.getBookListSize(); i++) {
 			BookList item = this.list.getBookList(i);
-			item.addListener(this);
+			item.addBookListener(this);
 
 		}
 		fireContentsChanged(this, 0, this.list.getBookListSize());
@@ -59,7 +59,12 @@ public class BookListListModel extends AbstractListModel implements WholeBookLis
 	}
 
 	@Override
-	public void nameChanged() {
+	public void bookListModified(WholeBookList list, BookList list2) {
+		fireContentsChanged(this, 0, this.list.getBookListSize());
+	}
+
+	@Override
+	public void bookListNameChanged(BookList list) {
 		fireContentsChanged(this, 0, this.list.getBookListSize());
 	}
 }
