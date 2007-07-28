@@ -23,7 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
 		jSplitPane2 = new javax.swing.JSplitPane();
 		bookListListPanel = new BookListListUI();
 		borrowerListPanel = new BorrowerListUI();
-		actionPanel = new javax.swing.JPanel();
+		actionPanel = new ActionPanel();
 		jPanel2 = new javax.swing.JPanel();
 		jSplitPane3 = new javax.swing.JSplitPane();
 		bookListTablePanel = new BookListTableUI();
@@ -40,11 +40,6 @@ public class MainFrame extends javax.swing.JFrame {
 		jPanel1.add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
 		javax.swing.GroupLayout actionPanelLayout = new javax.swing.GroupLayout(actionPanel);
-		actionPanel.setLayout(actionPanelLayout);
-		actionPanelLayout.setHorizontalGroup(actionPanelLayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100, Short.MAX_VALUE));
-		actionPanelLayout.setVerticalGroup(actionPanelLayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100, Short.MAX_VALUE));
 		jPanel1.add(actionPanel, java.awt.BorderLayout.SOUTH);
 
 		jSplitPane1.setLeftComponent(jPanel1);
@@ -94,7 +89,7 @@ public class MainFrame extends javax.swing.JFrame {
 	}
 
 	// Variables declaration - do not modify
-	public javax.swing.JPanel actionPanel;
+	public ActionPanel actionPanel;
 	public BookEditUI bookDetailPanel;
 	public BookListListUI bookListListPanel;
 	public BookListTableUI bookListTablePanel;
