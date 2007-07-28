@@ -1,5 +1,8 @@
 package libcafe.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -28,7 +31,7 @@ public class MainFrameTest {
 		BookList bookList2 = new BookList();
 		bookList1.setName("book List 1");
 
-		WholeBookList wBookList = new WholeBookList();
+		final WholeBookList wBookList = new WholeBookList();
 		wBookList.add(bookList1);
 		wBookList.add(bookList2);
 
@@ -45,7 +48,7 @@ public class MainFrameTest {
 
 		b1.setName("¼º¹Î");
 
-		BorrowerList bList = new BorrowerList();
+		final BorrowerList bList = new BorrowerList();
 
 		bList.add(b1);
 		bList.add(b2);
@@ -133,6 +136,29 @@ public class MainFrameTest {
 
 					}
 				});
+		
+		
+		
+		//event - Add BookList
+		f.actionPanel.addBookListButton.addActionListener(new ActionListener(){
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		
+				BookList bList = new BookList();
+				wBookList.add(bList);
+			}});
+
+		
+		f.actionPanel.addBorrowerButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Borrower bwer = new Borrower();
+				
+				bList.add(bwer);
+			}});
+		
 	}
 }
