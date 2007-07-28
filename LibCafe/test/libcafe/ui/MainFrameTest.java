@@ -39,6 +39,10 @@ public class MainFrameTest {
 		Borrower b1 = new Borrower();
 		Borrower b2 = new Borrower();
 
+		b1.add(book1);
+		b1.add(book2);
+		b2.add(book1);
+
 		b1.setName("성민");
 
 		BorrowerList bList = new BorrowerList();
@@ -65,7 +69,8 @@ public class MainFrameTest {
 		final BookEditController bEditController = new BookEditController(
 				f.bookDetailPanel);
 
-		// event - selection
+
+		// event - selection : BookList 선택 시
 
 		f.bookListListPanel.bookListList.getSelectionModel()
 				.addListSelectionListener(new ListSelectionListener() {
@@ -83,5 +88,51 @@ public class MainFrameTest {
 						bListTableController.setBookList(bList);
 					}
 				});
+
+
+		// event - selection : BorrowerList 선택 시
+		
+		f.borrowerListPanel.borrowerList.getSelectionModel()
+				.addListSelectionListener(new ListSelectionListener() {
+
+					@Override
+					public void valueChanged(ListSelectionEvent e) {
+						if (e.getValueIsAdjusting()) {
+							return;
+						}
+						BookList bList = (BookList) f.borrowerListPanel.borrowerList
+								.getSelectedValue();
+						if (bList == null) {
+							System.out.println("null");
+							return;
+						}
+
+						bListTableController.setBookList(bList);
+					}
+				});
+		
+		
+		
+		
+		//table 의 북 선택시 BookDetailPanel 에 보여주기.
+		
+		f.bookListTablePanel.getSelectionModel().setSelectionMode(0);
+		f.bookListTablePanel.getSelectionModel().addListSelectionListener(
+				new ListSelectionListener() {
+					@Override
+					public void valueChanged(ListSelectionEvent e) {
+						if (e.getValueIsAdjusting()) {
+							return;
+						}
+						int index = f.bookListTablePanel.getSelectedRow();
+						if (index == -1) {
+							return;
+						}		
+						Book book = bListTableController.getBookByRow(index);
+						bEditController.setBook(book);								
+
+					}
+				});
+
 	}
 }
