@@ -5,7 +5,7 @@ import java.util.List;
 
 import libcafe.ui.BorrowerListModel;
 
-public class BorrowerList implements BorrowerListener {
+public class BorrowerList extends Entity implements BorrowerListener {
 
 	List<Borrower> borrowers = new LinkedList<Borrower>();
 	List<BorrowerListListener> listeners = new LinkedList<BorrowerListListener>();

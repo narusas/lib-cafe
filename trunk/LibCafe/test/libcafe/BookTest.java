@@ -69,6 +69,7 @@ public class BookTest extends BasicTest {
 				// TODO Auto-generated method stub
 
 			}
+
 			@Override
 			public void bookListNameChanged(BookList list) {
 				// TODO Auto-generated method stub
@@ -137,7 +138,7 @@ public class BookTest extends BasicTest {
 			@Override
 			public void bookListModified(WholeBookList list, BookList list2) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		wList.add(new BookList());
@@ -163,4 +164,27 @@ public class BookTest extends BasicTest {
 		assertEquals(0, list.size());
 	}
 
+	public void testUniqueInTimeBookID() {
+		Entity.staticId = 100;
+		Book book3 = new Book(100);
+		Book book4 = new Book();
+
+		assertNotSame(book3.getID(), book4.getID());
+	}
+
+	public void testGenerateEntityId() {
+		Entity book = new Book();
+		Entity bList1 = new BookList();
+		assertSerialIdInEntities(book, bList1);
+	}
+
+	public void testEntities() {
+		assertSerialIdInEntities(new Book(), new Book());
+		assertSerialIdInEntities(new BookList(), new BookList());
+		assertSerialIdInEntities(new BorrowerList(), new BorrowerList());
+	}
+
+	public void assertSerialIdInEntities(Entity e1, Entity e2) {
+		assertEquals(e1.getID() + 1, e2.getID());
+	}
 }

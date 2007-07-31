@@ -3,10 +3,18 @@ package libcafe;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BookList implements BookListener {
+public class BookList extends Entity implements BookListener {
 	List<Book> books = new LinkedList<Book>();
 	List<BookListListener> listeners = new LinkedList<BookListListener>();
 	String name;
+
+	public BookList() {
+		super();
+	}
+
+	public BookList(int id) {
+		super(id);
+	}
 
 	public void add(Book book) {
 		if (books.contains(book)) {
@@ -79,5 +87,9 @@ public class BookList implements BookListener {
 	@Override
 	public String toString() {
 		return getName();
+	}
+
+	public int getID() {
+		return id;
 	}
 }
