@@ -71,6 +71,12 @@ public class MainFrameTest {
 
 		final BookEditController bEditController = new BookEditController(
 				f.bookDetailPanel);
+		bEditController.addSaveActionListener(new SaveActionListener(){
+			@Override
+			public void saved(Book book) {
+				bListListController.getSelectionList().add(book);
+			}
+		});
 
 
 		// event - selection : BookList º±≈√ Ω√
@@ -154,11 +160,16 @@ public class MainFrameTest {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				Borrower bwer = new Borrower();
 				
 				bList.add(bwer);
 			}});
-		
+		f.bookActionPanel.bookAddBtn.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				bEditController.setBook(new Book());
+			}
+		});
 	}
 }

@@ -34,6 +34,7 @@ public class LibraryTest extends TestCase {
 			public void wholeBookListModified(WholeBookList list, BookList list2) {
 				isTest = true;
 			}
+			public void wholeBorroerListModified(Borrower borrower) {}
 		});
 		wList.add(new BookList());
 		assertTrue(isTest);
@@ -45,6 +46,7 @@ public class LibraryTest extends TestCase {
 			public void wholeBookListModified(WholeBookList list, BookList list2) {
 				isTest = true;
 			}
+			public void wholeBorroerListModified(Borrower borrower) {}
 		});
 		BookList list = new BookList();
 		wList.add(list);
@@ -52,12 +54,13 @@ public class LibraryTest extends TestCase {
 		assertTrue(isTest);
 	}
 	
-	public void testGenerateBookNameChangedEvent(){
+	public void testGenerateBookListModifiedEvent(){
 		isTest = false;
 		lib.addLibraryListener(new LibraryListener(){
 			public void wholeBookListModified(WholeBookList list, BookList list2) {
 				isTest = true;
 			}
+			public void wholeBorroerListModified(Borrower borrower) {}
 		});
 		BookList list = new BookList();
 		Book book = new Book();
@@ -67,6 +70,48 @@ public class LibraryTest extends TestCase {
 		
 		book.setTitle("tested");
 
+		assertTrue(isTest);
+	}
+	
+	public void testGenerateBorrowListAddedEvent(){
+		isTest = false;
+		lib.addLibraryListener(new LibraryListener(){
+			public void wholeBookListModified(WholeBookList list, BookList list2) {}
+			public void wholeBorroerListModified(Borrower borrower) {
+				isTest = true;
+			}
+		});
+		bList.add(new Borrower());
+		assertTrue(isTest);
+	}
+	
+	public void testGenerateBorrowListRemovedEvent(){
+		isTest = false;
+		lib.addLibraryListener(new LibraryListener(){
+			public void wholeBookListModified(WholeBookList list, BookList list2) {}
+			public void wholeBorroerListModified(Borrower borrower) {
+				isTest = true;
+			}
+		});
+		Borrower b = new Borrower();
+		bList.add(b);
+		bList.remove(b);
+		assertTrue(isTest);
+	}
+	
+	public void testGenerateBorrowModifiedEvent(){
+		isTest = false;
+		lib.addLibraryListener(new LibraryListener(){
+			public void wholeBookListModified(WholeBookList list, BookList list2) {}
+			public void wholeBorroerListModified(Borrower borrower) {
+				if(borrower.getName().equals("tested"))
+					isTest = true;
+			}
+		});
+		Borrower b = new Borrower();
+		bList.add(b);
+		
+		b.setName("tested");
 		assertTrue(isTest);
 	}
 }

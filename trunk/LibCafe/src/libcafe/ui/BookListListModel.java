@@ -67,4 +67,8 @@ public class BookListListModel extends AbstractListModel implements WholeBookLis
 	public void bookListNameChanged(BookList list) {
 		fireContentsChanged(this, 0, this.list.getBookListSize());
 	}
+
+	public BookList getWholeBookList() {
+		return list;
+	}
 }

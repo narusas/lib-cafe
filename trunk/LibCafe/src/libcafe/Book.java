@@ -9,6 +9,7 @@ public class Book extends Entity {
 
 	String coverImageUrl;
 	String coverImageUrlThumbnail;
+
 	String creator; // 2
 	String translator; // 3
 	String publisher; // 4
