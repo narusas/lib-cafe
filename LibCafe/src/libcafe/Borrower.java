@@ -7,7 +7,14 @@ public class Borrower extends BookList {
 	List<BorrowerListener> listeners = new LinkedList<BorrowerListener>();
 
 	private String name;
+	
+	public Borrower() {
+		super();
+	}
 
+	public Borrower(int id) {
+		super(id);
+	}
 	public void borrow(Book book) {
 		if (books.contains(book)) {
 			return;
@@ -25,7 +32,7 @@ public class Borrower extends BookList {
 
 	@Override
 	public void add(Book book) {
-		System.out.println("### add :" + book);
+//		System.out.println("### add :" + book);
 		this.borrow(book);
 	}
 

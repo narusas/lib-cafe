@@ -3,27 +3,36 @@ package libcafe;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Book {
+public class Book extends Entity {
 
-	private String title;  //1
+	private String title; // 1
 
 	String coverImageUrl;
 	String coverImageUrlThumbnail;
-	String creator;      //2
-	String translator;   //3
-	String publisher;    //4
-	Date publishDate;    //5
-	String category;     //6
-	String description;  //7
-	String isbn;         //8
-	String price;           //9
-
+	String creator; // 2
+	String translator; // 3
+	String publisher; // 4
+	Date publishDate; // 5
+	String category; // 6
+	String description; // 7
+	String isbn; // 8
+	String price; // 9
+	
+	private int rating;
+	
 	boolean isBorrowed;
 
 	List<Tag> tags = new LinkedList<Tag>();
 	List<BookListener> listeners = new LinkedList<BookListener>();
 
-	private int rating;
+
+	public Book() {
+		super();
+	}
+
+	public Book(int id) {
+		super(id);
+	}
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -157,5 +166,9 @@ public class Book {
 
 	public int getRating() {
 		return rating;
+	}
+
+	public int getID() {
+		return id;
 	}
 }

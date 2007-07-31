@@ -13,6 +13,7 @@ public class WholeBookList extends BookList implements BookListListener {
 
 	public WholeBookList() {
 		bookLists.add(this);
+		setName("Whole Book List");
 	}
 
 	public void add(BookList bookList) {
