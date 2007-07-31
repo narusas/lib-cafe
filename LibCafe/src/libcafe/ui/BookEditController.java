@@ -1,10 +1,14 @@
 package libcafe.ui;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -16,6 +20,7 @@ public class BookEditController {
 
 	private final BookEditUI ui;
 	private Book book;
+	private List<SaveActionListener> saveActionListeners = new ArrayList<SaveActionListener>();
 
 	static Color WARNING_COLOR = new Color(240, 180, 150);
 
@@ -136,8 +141,11 @@ public class BookEditController {
 		if ("".equals(price) == false) {
 			book.setPrice(price);
 		}
-		
-		
+	
+		List<SaveActionListener> lists = Collections.unmodifiableList(saveActionListeners);
+		for (SaveActionListener saveActionListener : lists) {
+			saveActionListener.saved(book);
+		}
 	}
 
 	private void validate(String str) {
@@ -147,6 +155,8 @@ public class BookEditController {
 	}
 
 	public void setBook(Book book) {
+		if(book != null)
+			ui.saveButton.setEnabled(false);
 		
 		this.book = book;
 
@@ -177,6 +187,10 @@ public class BookEditController {
 
 	public Book getBook() {
 		return book;
+	}
+
+	public void addSaveActionListener(SaveActionListener listener) {
+		saveActionListeners  .add(listener);
 	}
 
 }

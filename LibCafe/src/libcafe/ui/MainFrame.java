@@ -1,5 +1,11 @@
 package libcafe.ui;
 
+import java.awt.BorderLayout;
+
+import javax.swing.JPanel;
+
+import sun.net.www.content.image.jpeg;
+
 /**
  * 
  * @author Administrator
@@ -28,6 +34,8 @@ public class MainFrame extends javax.swing.JFrame {
 		jSplitPane3 = new javax.swing.JSplitPane();
 		bookListTablePanel = new BookListTableUI();
 		bookDetailPanel = new BookEditUI();
+		bookActionPanel = new BookActionPanel();
+		jPanel3 = new JPanel();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		jPanel1.setLayout(new java.awt.BorderLayout());
@@ -45,7 +53,7 @@ public class MainFrame extends javax.swing.JFrame {
 		jSplitPane1.setLeftComponent(jPanel1);
 
 		jPanel2.setLayout(new java.awt.BorderLayout());
-
+		
 		jSplitPane3.setDividerLocation(600);
 
 		// javax.swing.GroupLayout bookListTablePanelLayout = new
@@ -57,8 +65,12 @@ public class MainFrame extends javax.swing.JFrame {
 		// bookListTablePanelLayout.setVerticalGroup(bookListTablePanelLayout.createParallelGroup(
 		// javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 645,
 		// Short.MAX_VALUE));
-		jSplitPane3.setLeftComponent(bookListTablePanel);
-
+		jPanel3.setLayout(new BorderLayout());
+		jPanel3.add(bookListTablePanel, BorderLayout.CENTER);
+		jPanel3.add(bookActionPanel, BorderLayout.SOUTH);
+		
+		jSplitPane3.setLeftComponent(jPanel3);
+		
 		jSplitPane3.setRightComponent(bookDetailPanel);
 
 		jPanel2.add(jSplitPane3, java.awt.BorderLayout.CENTER);
@@ -66,7 +78,7 @@ public class MainFrame extends javax.swing.JFrame {
 		jSplitPane1.setRightComponent(jPanel2);
 
 		getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
-
+		
 		jSplitPane1.setDividerSize(5);
 		jSplitPane2.setDividerSize(5);
 		jSplitPane3.setDividerSize(5);
@@ -89,11 +101,13 @@ public class MainFrame extends javax.swing.JFrame {
 	}
 
 	// Variables declaration - do not modify
+	public BookActionPanel bookActionPanel;
 	public ActionPanel actionPanel;
 	public BookEditUI bookDetailPanel;
 	public BookListListUI bookListListPanel;
 	public BookListTableUI bookListTablePanel;
 	public BorrowerListUI borrowerListPanel;
+	private JPanel jPanel3;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JSplitPane jSplitPane1;
