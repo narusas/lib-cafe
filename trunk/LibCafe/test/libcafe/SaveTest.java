@@ -7,7 +7,7 @@ import java.io.OutputStream;
 
 import junit.framework.TestCase;
 
-public class SaveAndLoadTest extends TestCase {
+public class SaveTest extends TestCase {
 
 	public void testDummy() {
 		Library lib = new Library();
