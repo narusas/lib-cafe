@@ -1,10 +1,16 @@
 package libcafe;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -101,8 +107,7 @@ public class DeSerializer {
 		}
 	}
 
-	public static Map<BookList, List<Integer>> convertBookListsFrom(
-			Section section) {
+	public static Map<BookList, List<Integer>> convertBookListsFrom(Section section) {
 		int len = parseSectionLength(section);
 		HashMap<BookList, List<Integer>> res = new HashMap<BookList, List<Integer>>();
 		for (int i = 1; i < section.length(); i += 2) {
@@ -116,6 +121,9 @@ public class DeSerializer {
 			List<Integer> items = new LinkedList<Integer>();
 			String[] itemsSrc = itemsToken.getValue().split(",");
 			for (String s : itemsSrc) {
+				if ("".equals(s)) {
+					continue;
+				}
 				items.add(Integer.parseInt(s.trim()));
 			}
 			res.put(list, items);
@@ -127,8 +135,95 @@ public class DeSerializer {
 		return Integer.parseInt(section.getTokens(0).getValue());
 	}
 
-	public static List<BookList> parseBooksBookList(String src) {
-		// TODO Auto-generated method stub
+	public static List<BookList> parseBooksAndBookList(Section bookSection, Section booklistSection) {
+		List<BookList> res = new LinkedList<BookList>();
+
+		Map<Integer, Book> allBooks = DeSerializer.convertBooksFrom(bookSection);
+		Map<BookList, List<Integer>> bookLists = DeSerializer.convertBookListsFrom(booklistSection);
+
+		Iterator<Entry<BookList, List<Integer>>> it = bookLists.entrySet().iterator();
+		while (it.hasNext()) {
+			Entry<BookList, List<Integer>> entry = (Entry<BookList, List<Integer>>) it.next();
+
+			BookList list = entry.getKey();
+			for (Integer itemNo : entry.getValue()) {
+				list.add(allBooks.get(itemNo));
+			}
+			res.add(list);
+
+		}
+		return res;
+	}
+
+	public static WholeBookList parseWholeBooklist(Section bookSection, Section booklistSection) {
+		List<BookList> list = parseBooksAndBookList(bookSection, booklistSection);
+		WholeBookList wList = new WholeBookList();
+		wList.books.addAll(findWholeBooks(list));
+		wList.bookLists.addAll(exceptForWhole(list));
+		return wList;
+	}
+
+	private static Collection<? extends BookList> exceptForWhole(List<BookList> list) {
+		List<BookList> res = new LinkedList<BookList>();
+		for (BookList bookList : list) {
+			if (bookList.getID() == 0) {
+				continue;
+			}
+			res.add(bookList);
+		}
+		return res;
+	}
+
+	private static Collection<? extends Book> findWholeBooks(List<BookList> list) {
+		for (BookList bookList : list) {
+			if (bookList.getID() == 0) {
+				return bookList.books;
+			}
+		}
 		return null;
+	}
+
+	public static BorrowerList parseBorrowerList(Map<Integer, Book> allBooks, Section borrowerSection) {
+		Map<BookList, List<Integer>> borrowers = DeSerializer.convertBookListsFrom(borrowerSection);
+		Iterator<Entry<BookList, List<Integer>>> it = borrowers.entrySet().iterator();
+		BorrowerList res = new BorrowerList();
+		while (it.hasNext()) {
+			Entry<BookList, List<Integer>> entry = (Entry<BookList, List<Integer>>) it.next();
+			Borrower b = new Borrower();
+			b.setName(entry.getKey().getName());
+
+			for (Integer itemNo : entry.getValue()) {
+				b.add(allBooks.get(itemNo));
+			}
+			res.add(b);
+		}
+
+		return res;
+	}
+
+	public static Library loadLibrary(InputStream in) throws IOException {
+		ByteArrayOutputStream bout = new ByteArrayOutputStream();
+
+		byte[] buf = new byte[4096];
+		while (true) {
+			int r = in.read(buf, 0, 4096);
+			if (r == -1) {
+				break;
+			}
+			bout.write(buf, 0, r);
+		}
+		
+		String src = new String(bout.toByteArray());
+		
+		List<Section> sections = DeSerializer.parseSections(src);
+
+		Map<Integer, Book> allBooks = DeSerializer.convertBooksFrom(sections.get(0));
+		WholeBookList wList = DeSerializer.parseWholeBooklist(sections.get(0), sections.get(1));
+		BorrowerList bList = DeSerializer.parseBorrowerList(allBooks, sections.get(2));
+
+		Library lib = new Library();
+		lib.setBorrowList(bList);
+		lib.setWholeBookList(wList);
+		return lib;
 	}
 }
