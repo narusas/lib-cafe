@@ -39,9 +39,7 @@ public class SaveTest extends TestCase {
 
 		bwerList.add(bwer1);
 		bwerList.add(bwer2);
-		
-		
-		
+
 		lib.setWholeBookList(wBookList);
 		lib.setBorrowList(bwerList);
 
@@ -66,17 +64,16 @@ public class SaveTest extends TestCase {
 
 		assertEquals("10.name=list1\n" + // 
 				"10.items=101,\n", Serializer.serialize(bList));
-		
+
 		assertEquals("<BookList>\n" + //
 				"length=2\n" + //
 				"0.name=Whole Book List\n" + //
 				"0.items=100,101,\n" + //
 				"10.name=list1\n" + // 
-				"10.items=101,\n" , Serializer.serializeBookList(wBookList));
+				"10.items=101,\n", Serializer.serializeBookList(wBookList));
 
 		// borrower 1¸í Å×½ºÆ®.
-		assertEquals("1.name=¼º¹Î\n" + "1.items=100,\n", Serializer
-				.serialize(bwer1));
+		assertEquals("1.name=¼º¹Î\n" + "1.items=100,\n", Serializer.serialize(bwer1));
 
 		assertEquals("2.name=Àº¹¬\n", Serializer.serialize(bwer2));
 
@@ -86,30 +83,26 @@ public class SaveTest extends TestCase {
 				"1.items=100,\n" + //
 				"2.name=Àº¹¬\n" //
 		, Serializer.serializeBorrowerList(bwerList));
-		
-		
-		
+
 		assertEquals("<Books>\n" + //
 				"length=2\n" + //
 				"100.title=title1\n" + //
 				"101.title=title2\n" + // 
 				"101.creator=author\n" + //
-				
+
 				"<BookList>\n" + //
 				"length=2\n" + //
 				"0.name=Whole Book List\n" + //
 				"0.items=100,101,\n" + //
 				"10.name=list1\n" + // 
 				"10.items=101,\n" + //
-				
+
 				"<Borrowers>\n" + //
 				"length=2\n" + //
 				"1.name=¼º¹Î\n" + //
 				"1.items=100,\n" + //
 				"2.name=Àº¹¬\n" //
-				, Serializer.serializeLibrary(lib));
-				
-		
-		
+		, Serializer.serializeLibrary(lib));
+
 	}
 }

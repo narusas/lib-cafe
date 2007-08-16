@@ -8,8 +8,10 @@ public class AllTests {
 	public static Test suite() {
 		TestSuite suite = new TestSuite("Test for libcafe");
 		//$JUnit-BEGIN$
+		suite.addTestSuite(SaveTest.class);
 		suite.addTestSuite(BookTest.class);
 		suite.addTestSuite(DateTest.class);
+		suite.addTestSuite(LoadTest.class);
 		suite.addTestSuite(BorrowerTest.class);
 		suite.addTestSuite(BasicTest.class);
 		suite.addTestSuite(TagTest.class);
