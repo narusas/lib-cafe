@@ -1,19 +1,24 @@
 package libcafe.fetcher;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import junit.framework.TestCase;
+import libcafe.Book;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.methods.GetMethod;
+import org.xml.sax.SAXException;
 
-public class HttpClientTest extends TestCase{
-	public void testClient() throws IOException{
-		HttpClient client = new HttpClient();
-		HttpMethod method = new GetMethod("http://www.apache.org/");
-		client.executeMethod(method);
-		byte[] body = method.getResponseBody();
-		System.out.println(new String(body));
+public class HttpClientTest extends TestCase {
+
+	public void testDaumFetcher() throws UnsupportedEncodingException,
+			SAXException, IOException {
+		String apikey = "13672e9ee069b904f2e229f5b6e7d2b362d4306b";
+		DaumFetcher fetcher = new DaumFetcher(apikey);
+		List<Book> books = fetcher.query("¾ß¿Í¶ó");
+		assertTrue(books.size() > 0);
+
+		books = fetcher.query("TDD");
+		assertTrue(books.size() > 0);
 	}
 }

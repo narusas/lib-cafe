@@ -18,14 +18,13 @@ public class Book extends Entity {
 	String description; // 7
 	String isbn; // 8
 	String price; // 9
-	
+
 	private int rating;
-	
+
 	boolean isBorrowed;
 
 	List<Tag> tags = new LinkedList<Tag>();
 	List<BookListener> listeners = new LinkedList<BookListener>();
-
 
 	public Book() {
 		super();
@@ -171,5 +170,10 @@ public class Book extends Entity {
 
 	public int getID() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Book=[" + title + "," + creator + "]";
 	}
 }
