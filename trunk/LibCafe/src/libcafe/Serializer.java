@@ -1,5 +1,8 @@
 package libcafe;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class Serializer {
 
 	public static String serialize(Book book) {
@@ -86,6 +89,13 @@ public class Serializer {
 		res += serializeBookList(lib.getWholeBookList());
 		res += serializeBorrowerList(lib.getBorrowList());
 		return res;
+	}
+	
+	public static void saveLibrary(OutputStream out, Library lib) throws IOException{
+		String data = serializeLibrary(lib);
+		out.write(data.getBytes());
+		out.flush();
+		out.close();
 	}
 
 }
