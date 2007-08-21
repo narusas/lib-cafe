@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.w3c.dom.Document;
@@ -21,73 +22,23 @@ import org.xml.sax.SAXException;
 
 import libcafe.Book;
 
-public class DaumFetcher {
-
-	private final String apikey = "13672e9ee069b904f2e229f5b6e7d2b362d4306b";
-	// String apikey = "13672e9ee069b904f2e229f5b6e7d2b362d4306b";
-
-	private DocumentBuilder builder;
-
+public class DaumFetcher extends ChannelFetcher {
 	public DaumFetcher(String apikey) {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		try {
-			builder = factory.newDocumentBuilder();
-		} catch (ParserConfigurationException e) {
-		}
+		super("13672e9ee069b904f2e229f5b6e7d2b362d4306b");
 	}
 
-	public List<Book> query(String query) throws UnsupportedEncodingException,
-			SAXException, IOException {
+	protected Node getChannelNode(Document doc) {
+		NodeList childs = doc.getChildNodes();
+		Node channel = childs.item(0);
+		return channel;
+	}
 
-		HttpClient client = new HttpClient();
+	protected HttpMethod createMethod(String query)
+			throws UnsupportedEncodingException {
 		HttpMethod method = new GetMethod("http://apis.daum.net/search/book?"// 
 				+ "result=19" //
 				+ "&apikey=" + apikey// 
 				+ "&q=" + URLEncoder.encode(query, "euc-kr"));
-		client.executeMethod(method);
-		byte[] body = method.getResponseBody();
-
-		String xml = new String(body, "utf-8");
-
-		Document doc = builder.parse(new ByteArrayInputStream(xml
-				.getBytes("utf-8")));
-		NodeList childs = doc.getChildNodes();
-
-		Node channel = childs.item(0);
-		childs = channel.getChildNodes();
-
-		List<Book> res = new LinkedList<Book>();
-		for (int i = 0; i < childs.getLength(); i++) {
-			if ("item".equals(childs.item(i).getNodeName())) {
-				Book book = convertItemToBook(childs.item(i));
-				res.add(book);
-			}
-		}
-
-		return res;
+		return method;
 	}
-
-	private Book convertItemToBook(Node item) {
-		Book book = new Book();
-		NodeList childs = item.getChildNodes();
-		for (int i = 0; i < childs.getLength(); i++) {
-			Node n = childs.item(i);
-			String nodeName = n.getNodeName();
-			if ("title".equals(nodeName)) {
-				book.setTitle(removeTag(getNodeValue(n)));
-			} else if ("author".equals(nodeName)) {
-				book.setCreator(removeTag(getNodeValue(n)));
-			}
-		}
-		return book;
-	}
-
-	private String removeTag(String nodeValue) {
-		return nodeValue.replaceAll("<[^>]+>", "");
-	}
-
-	private String getNodeValue(Node n) {
-		return n.getChildNodes().item(0).getNodeValue();
-	}
-
 }

@@ -1,6 +1,5 @@
 package libcafe.ui;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -12,10 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-import org.xml.sax.SAXException;
-
 import libcafe.Book;
 import libcafe.fetcher.DaumFetcher;
+
+import org.xml.sax.SAXException;
 
 public class AddBookBySearchPanelTest {
 	static List<Book> books = new LinkedList<Book>();

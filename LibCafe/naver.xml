@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Naver Open API - book_adv ::'8979142889'</title>
+		<link>http://search.naver.com</link>
+		<description>Naver Search Result</description>
+		<lastBuildDate>Tue, 21 Aug 2007 16:24:05 +0900</lastBuildDate>
+		<total>1</total>
+		<start>1</start>
+		<display>1</display>
+		<item> 
+			<title>Programming Challenges</title>
+			<link>
+				http://book.naver.com/bookdb/book_detail.php?bid=157089
+			</link>
+			<image>
+				http://bookimg.naver.com/coverimg/libro/book_img/4690/0100005413543_01.jpg
+			</image>
+			<author>스티븐 S. 스키에나</author>
+			<price>26000</price>
+			<discount>20800</discount>
+			<publisher>한빛미디어</publisher>
+			<pubdate>20040716</pubdate>
+			<isbn>8979142889</isbn>
+			<description>
+				프로그래밍 스킬은 연습을 통해서만 향상된다 프로그래밍적 상상력을 극대화하는 112가지 유형의
+				알고리즘과 자료구조수학 공식을 많이 알고 있다고 해서 문제를 쉽게 풀 수 있는 것은 아닌 것처럼
+				프로그래밍에...
+			</description>
+		</item>
+	</channel>
+</rss>
+
