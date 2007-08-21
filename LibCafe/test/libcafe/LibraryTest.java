@@ -73,6 +73,20 @@ public class LibraryTest extends TestCase {
 		assertTrue(isTest);
 	}
 	
+	public void testGenerateBookListModifiedEventJustBookAdd(){
+		isTest = false;
+		lib.addLibraryListener(new LibraryListener(){
+			public void wholeBookListModified(WholeBookList list, BookList list2) {
+				isTest = true;
+			}
+			public void wholeBorroerListModified(Borrower borrower) {}
+		});
+		Book book = new Book();
+		wList.add(book);
+		
+		assertTrue(isTest);
+	}
+	
 //	public void testGenerateBorrowListAddedEvent(){
 //		isTest = false;
 //		lib.addLibraryListener(new LibraryListener(){
