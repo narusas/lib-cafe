@@ -112,7 +112,7 @@ public class MainFrame extends javax.swing.JFrame {
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JSplitPane jSplitPane1;
 	private javax.swing.JSplitPane jSplitPane2;
-	private javax.swing.JSplitPane jSplitPane3;
+	public javax.swing.JSplitPane jSplitPane3;
 	// End of variables declaration
 
 }

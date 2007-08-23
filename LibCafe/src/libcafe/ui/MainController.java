@@ -14,6 +14,10 @@ import libcafe.Library;
 public class MainController {
 	private final MainFrame ui;
 	private final Library lib;
+	private BookListListController bListListController;
+	private BookListTableController bListTableController;
+	private BorrowerListModel bListController;
+	private BookEditController bEditController;
 
 	public MainController(MainFrame ui, Library lib) {
 		this.ui = ui;
@@ -24,21 +28,19 @@ public class MainController {
 		/*
 		 * 각 UI의 Controller 생성.
 		 */
-		final BookListListController bListListController = new BookListListController(
-				ui.bookListListPanel);
+		bListListController = new BookListListController(ui.bookListListPanel);
 		bListListController.setWholeBookList(lib.getWholeBookList());
 		ui.bookListListPanel.validate();
 
-		final BookListTableController bListTableController = new BookListTableController();
+		bListTableController = new BookListTableController();
 		ui.bookListTablePanel.setModel(bListTableController);
 		bListTableController.setBookList(lib.getWholeBookList());
 
-		final BorrowerListModel bListController = new BorrowerListModel();
+		bListController = new BorrowerListModel();
 		bListController.setList(lib.getBorrowList());
 		ui.borrowerListPanel.setModel(bListController);
 
-		final BookEditController bEditController = new BookEditController(
-				ui.bookDetailPanel);
+		bEditController = new BookEditController(ui.bookDetailPanel);
 		bEditController.addSaveActionListener(new SaveActionListener() {
 			@Override
 			public void saved(Book book) {
@@ -131,8 +133,39 @@ public class MainController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				bEditController.setBook(new Book());
+				startBookAdd();
 			}
 		});
+	}
+
+	protected void startBookAdd() {
+		changeToAddBookTypePanel();
+	}
+
+	private void changeToAddBookTypePanel() {
+		AddFormUI p = new AddFormUI();
+		AddFormController controller = new AddFormController(p);
+		controller.bookSelectedListener = new BookSelectedListener() {
+
+			@Override
+			public void bookSelected(Book book) {
+				lib.getWholeBookList().add(book);
+			}
+
+		};
+		ui.jSplitPane3.setRightComponent(p);
+		p.directBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				changeToAddBookDetalPanel();
+			}
+		});
+	}
+
+	private void changeToAddBookDetalPanel() {
+		ui.jSplitPane3.setRightComponent(ui.bookDetailPanel);
+		Book book = new Book();
+		bEditController.setBook(book);
 	}
 }
