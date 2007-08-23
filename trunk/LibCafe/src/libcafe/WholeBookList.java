@@ -83,6 +83,10 @@ public class WholeBookList extends BookList implements BookListListener {
 	}
 
 	public BookList getBookList(int index) {
+		if (bookLists == null) {
+			return null;
+		}
+
 		return bookLists.get(index);
 	}
 

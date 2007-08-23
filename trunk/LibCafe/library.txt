@@ -1,0 +1,10 @@
+<Books>
+length=1
+2.title=ASDASDAS
+2.creator=
+<BookList>
+length=1
+0.name=Whole Book List
+0.items=2,
+<Borrowers>
+length=0

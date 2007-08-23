@@ -48,9 +48,9 @@ public class AddFormController {
 						System.out.println("ISBN query");
 						books = fetcher.query(isbn);
 					}
-					
+
 					setupSearchResultDialog(books);
-					
+
 				} catch (UnsupportedEncodingException e1) {
 					e1.printStackTrace();
 				} catch (SAXException e1) {
@@ -87,7 +87,6 @@ public class AddFormController {
 
 					setupSearchResultDialog(books);
 
-					
 				} catch (UnsupportedEncodingException e1) {
 					e1.printStackTrace();
 				} catch (SAXException e1) {
@@ -127,17 +126,15 @@ public class AddFormController {
 		return !defaultText.equals(text) && !text.isEmpty();
 	}
 
-	
 	private void setupSearchResultDialog(List<Book> books) {
 		searchResUI = new SearchResultDialog(books);
 
-		searchResUI.selectButton
-				.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						searchResUI.setVisible(false);
-					}
-				});
+		searchResUI.selectButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				searchResUI.setVisible(false);
+			}
+		});
 
 		searchResUI.setModal(true);
 		searchResUI.setVisible(true);
@@ -145,7 +142,17 @@ public class AddFormController {
 		book = searchResUI.getBook();
 
 		System.out.println("## " + book);
-		
-		ui.setVisible(false);
+		notifyBookSelected(book);
 	}
+
+	private void notifyBookSelected(Book book) {
+		bookSelectedListener.bookSelected(book);
+	}
+
+	BookSelectedListener bookSelectedListener;
+
+}
+
+interface BookSelectedListener {
+	void bookSelected(Book book);
 }
