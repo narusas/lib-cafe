@@ -43,7 +43,7 @@ public class Serializer {
 	// 특정한 string 형식으로 리턴.
 	private static String getParam(int id, String key, Object value) {
 		if (value == null || "".equals(value.toString())) {
-			return "";
+			return id + "." + key + "=\n";
 		}
 		return id + "." + key + "=" + value + "\n";
 	}
