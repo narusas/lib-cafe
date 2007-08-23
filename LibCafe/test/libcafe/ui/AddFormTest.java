@@ -13,7 +13,7 @@ public class AddFormTest {
 		
 		AddFormUI ui = new AddFormUI();
 		AddFormController controller = new AddFormController(ui);
-		controller.setBookList(fixture.list1);
+//		controller.setBookList(fixture.list1);
 		
 		BookListTableUI listUI = new BookListTableUI();
 		BookListTableController listController = new BookListTableController();
@@ -24,4 +24,6 @@ public class AddFormTest {
 		frame.getContentPane().add(listUI, BorderLayout.SOUTH);
 		frame.validate();
 	}
+	
+	
 }

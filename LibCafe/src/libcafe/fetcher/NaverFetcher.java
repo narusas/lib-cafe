@@ -16,8 +16,13 @@ import org.xml.sax.SAXException;
 
 public class NaverFetcher extends ChannelFetcher {
 
+//	public NaverFetcher(String apikey) {
+//		super(apikey);
+//	}
+
 	public NaverFetcher(String apikey) {
-		super(apikey);
+		super("41fbf00c99adcd9293d95acb9383c28b");
+
 	}
 
 	@Override

@@ -10,6 +10,10 @@ import libcafe.BookListListener;
 
 public class BookListTableController extends DefaultTableModel implements
 		BookListListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6324746542221450967L;
 	private BookList bookList;
 
 	public BookListTableController() {

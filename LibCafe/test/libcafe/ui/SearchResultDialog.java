@@ -7,43 +7,58 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import libcafe.Book;
 
-public class SearchResultDialog extends JDialog{
+public class SearchResultDialog extends JDialog {
 
 	private JTable table = new JTable();
-	public SearchResultDialog(List<Book> books){
+	public JButton selectButton = new JButton();
+	private final List<Book> books;
+
+	public SearchResultDialog(List<Book> books) {
+		this.books = books;
 		setLayout(new BorderLayout());
-		setSize(300, 500);
-		
+
+		selectButton.setText("º±≈√");
+
 		SearchResultModel model = new SearchResultModel();
 		model.addAll(books);
 		table.setModel(model);
-		ScrollPane pane = new ScrollPane();
-		pane.add(table);
+
+		// ScrollPane pane = new ScrollPane();
+		// pane.add(table);
 		getContentPane().add(table, BorderLayout.CENTER);
+		getContentPane().add(new JLabel("Result"), BorderLayout.NORTH);
+		getContentPane().add(selectButton, BorderLayout.SOUTH);
+		// validate();
+		setSize(300, 500);
+		model.fireTableDataChanged();
+		// pack();
 	}
 
 	public Book getBook() {
-		return null;
+		if (table.getSelectedRow() == -1) {
+			return null;
+		}
+		return books.get(table.getSelectedRow());
 	}
 }
 
-class SearchResultModel extends DefaultTableModel
-{
+class SearchResultModel extends DefaultTableModel {
 	private List<Book> books = new ArrayList<Book>();
-	
+
 	public void addAll(List<Book> books) {
 		this.books.addAll(books);
 	}
-	
+
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
-		Class[] clazz = new Class[] { JButton.class, String.class, String.class,
-				Integer.class };
+		Class[] clazz = new Class[] { JButton.class, String.class,
+				String.class, Integer.class };
 		return clazz[columnIndex];
 	}
 
