@@ -1,0 +1,203 @@
+<channel>
+	<title><![CDATA[Daum Open API - book Search query : '야와라']]></title>
+	<link><![CDATA[http://apis.daum.net/search/book]]></link>
+	<lastBuildDate>Sat, 18 Aug 07 17:08:15 +0900</lastBuildDate>
+	<totalCount>31</totalCount>
+	<sort>popular</sort>
+	<result>10</result>
+	<target>meta</target>
+	<pageno>1</pageno>
+	<elapsed_time>37.935018539429</elapsed_time>
+	<q>야와라</q>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 28]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952903938]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문화사]]></pub_nm>
+		<pub_date><![CDATA[Wed, 25 Oct 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952903935]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952903938]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 29]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952904225]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문화사]]></pub_nm>
+		<pub_date><![CDATA[Wed, 25 Oct 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952904222]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952904225]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 27]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952903389]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문화사]]></pub_nm>
+		<pub_date><![CDATA[Mon, 25 Sep 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952903382]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952903389]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 26]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952903174]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문화사]]></pub_nm>
+		<pub_date><![CDATA[Fri, 01 Sep 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[895290317X]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952903174]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 25]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952902795]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문화사]]></pub_nm>
+		<pub_date><![CDATA[Wed, 30 Aug 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952902793]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952902795]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 24]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952902573]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문학사]]></pub_nm>
+		<pub_date><![CDATA[Tue, 01 Aug 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952902572]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952902573]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 23]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952902429]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문학사]]></pub_nm>
+		<pub_date><![CDATA[Tue, 01 Aug 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952902424]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952902429]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 22]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952902023]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문학사]]></pub_nm>
+		<pub_date><![CDATA[Tue, 25 Jul 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952902025]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952902023]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 20]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952901729]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문학사]]></pub_nm>
+		<pub_date><![CDATA[Tue, 25 Jul 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[895290172X]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952901729]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+	<item>
+		<title><![CDATA[<B><B>야</B><B>와라</B></B> 19]]></title>
+		<link><![CDATA[http://book.daum.net/bookdetail/book.do?bookid=KOR9788952901583]]></link>
+		<cover_s_url><![CDATA[]]></cover_s_url>
+		<cover_l_url><![CDATA[]]></cover_l_url>
+		<description><![CDATA[]]></description>
+		<author><![CDATA[URASAWA NAOKI]]></author>
+		<translator><![CDATA[서현아]]></translator>
+		<pub_nm><![CDATA[학산문학사]]></pub_nm>
+		<pub_date><![CDATA[Tue, 25 Jul 00 00:00:00 +0900]]></pub_date>
+		<category><![CDATA[만화]]></category>
+		<isbn><![CDATA[8952901584]]></isbn>
+		<sale_yn><![CDATA[N]]></sale_yn>
+		<list_price><![CDATA[3500]]></list_price>
+		<sale_price><![CDATA[3150]]></sale_price>
+		<status_des><![CDATA[절판]]></status_des>
+		<barcode><![CDATA[9788952901583]]></barcode>
+		<ebook_barcode><![CDATA[]]></ebook_barcode>
+	</item>
+</channel>
+
